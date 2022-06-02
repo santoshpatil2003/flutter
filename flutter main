@@ -1,0 +1,104 @@
+import 'package:flutter/material.dart';
+import 'package:main_2/dict.dart';
+
+
+void main() => runApp(const MaterialApp(home: MyApp()));
+
+
+var a = Button(cat: cat,maxamount: maxamount,);
+var b = Button(cat: cat,maxamount: maxamount,);
+
+String? cat;
+String? maxamount;
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+List <Widget> cat1 =  [];
+
+class _MyAppState extends State<MyApp> {
+
+  // List <Widget> cat1 =  [a];
+  padd() {
+    return Future.delayed(const Duration(seconds: 2),add());
+  }
+
+  add(){
+    cat1.add(b);
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Home',
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    width: 110.0,
+                    height: 90.0,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                      child: FloatingActionButton(
+                        onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context)=>const Dict()
+                            );
+                          setState(() {
+
+                          });
+
+                        },
+                        child: const Icon(
+                          Icons.add,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(20, 30, 0, 0),
+                    child: Text(
+                      "Groups",
+                      style: TextStyle(fontSize: 25.0, color: Colors.black45),
+                    ),
+                  ),
+                ],
+              ),
+              Scrollbar(
+                child: Column(
+                  children:  [
+                    ListView.builder(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                       itemCount: cat1.length,
+                       itemBuilder: (context, index){
+                         return cat1[index];
+                       }
+                      ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ));
+  }
+}
