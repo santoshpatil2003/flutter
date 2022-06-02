@@ -7,8 +7,8 @@ import 'package:main_2/dict.dart';
 void main() => runApp(const MaterialApp(home: MyApp()));
 
 
-var a = Button(onPressed: (){},cat: cat,maxamount: maxamount,);
-var b = Button(onPressed: (){},cat: cat,maxamount: maxamount,);
+var a = Button(cat: cat,maxamount: maxamount,);
+var b = Button(cat: cat,maxamount: maxamount,);
 
 String? cat;
 String? maxamount;
@@ -104,3 +104,4 @@ class _MyAppState extends State<MyApp> {
         ));
   }
 }
+
